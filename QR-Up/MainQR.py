@@ -11,10 +11,12 @@ import time
 
 root = tk.Tk()
 root.title("QR-Up: A Code Generator and Decoder by Abhiraj Ghose")
-root.geometry("600x600")  # Set the dimensions to width=600 and height=400
+root.geometry("600x600")
 
-# Define a custom font
+
 custom_font = ("Georgia", 12)
+
+
 
 def generate_qr():
     input_text = input_entry.get()
@@ -30,23 +32,19 @@ def generate_qr():
 
         img = qr.make_image(fill_color="black", back_color="white")
 
-        # Generate a unique filename based on current timestamp
+
         timestamp = time.strftime("%Y%m%d_%H%M%S")
         file_name = f"generated_qr_code_{timestamp}.png"
 
-        # Save the generated QR code image to a file
         file_path = f"C:\\Users\\shrey\\OneDrive\\Desktop\\Abhiraj_Ghose_Projects\\Python_Programs\\MyQR\\SavedQRCodes\\{file_name}"
         img.save(file_path)
 
-        # Open the saved image file
         qr_image = PILImage.open(file_path)
 
-        # Convert PIL image to PhotoImage
         photo_image = PIL.ImageTk.PhotoImage(qr_image)
 
-        # Configure the Tkinter label to display the image
         qr_label.config(image=photo_image)
-        qr_label.image = photo_image  # Keep a reference to prevent garbage collection
+        qr_label.image = photo_image  
     else:
         messagebox.showwarning("Input Error", "Please enter some text or link to generate a QR code.")
 
