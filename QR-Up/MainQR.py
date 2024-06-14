@@ -9,6 +9,7 @@ import io
 import time
 
 
+
 root = tk.Tk()
 root.title("QR-Up: A Code Generator and Decoder by Abhiraj Ghose")
 root.geometry("600x600")
